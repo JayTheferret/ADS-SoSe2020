@@ -13,34 +13,74 @@
 
 using namespace std;
 
+Ring ring;
 
 int main()
 {
 	int result = Catch::Session().run();
 	// Ihr Code hier:
-
-	cout << "=======================================" << endl;
-	cout << "1) Backup einfuegen" << endl
-		<< "2) Backup suchen" << endl
-		<< "3) Alle Backups ausgeben" << endl;
+	bool quit = false;
+	do {
+	cout << "    =============================="	<< endl
+		 << "   |                              |"	<< endl
+		 << "   |   1) Backup einfuegen        |"	<< endl
+		 << "   |   2) Backup suchen           |"	<< endl
+		 << "   |   3) Alle Backups ausgeben   |"	<< endl
+		 << "   |   4) Quit                    |"	<< endl
+		 << "   |                              |"	<< endl
+		 << "    =============================="	<< endl;
 
 	int auswahl = 0;
 
 	cout << "?> ";
 	cin >> auswahl;
+	
+		if (auswahl == 1) {
+			string desc;
+			string data;
 
-	if (auswahl == 1) {
-		cout << "Neuen Datensatz einfuegen" << endl;
-	}
+			cout << "Neuen Datensatz einfuegen" << endl
+				<< "Beschrebung: ?";
+			cin >> desc;
+			cout << "Daten: ?";
+			cin >> data;
 
-	if (auswahl == 2) {
-		cout << "Nach welchen Daten soll gesucht werden?" << endl;
-	}
+			ring.addNode(data, desc);
 
-	if (auswahl == 3) {
-		cout << "ausgabe";
-	}
+			cout << "Datensatz hinzugefuegt." << endl;
 
+		}
+
+		else if (auswahl == 2) {
+			string zufinden;
+			bool gefunden;
+			RingNode* gefundeneNode = nullptr;
+
+			cout << "Nach welchen Daten soll gesucht werden?" << endl;
+			cin >> zufinden;
+
+			gefunden = ring.search(zufinden, gefundeneNode);
+
+			if (gefunden) {
+				cout << "Gefunden in Backup: ";
+				gefundeneNode->print();
+				cout << endl;
+			}
+			else {
+				cout << "Datensatz konnte nicht gefunden werden." << endl;
+			}
+		}
+
+		else if (auswahl == 3) {
+			ring.print();
+		}
+		else if (auswahl == 4) {
+			quit = true;
+		}
+		else {
+			cout << "Ungueltige Eingabe!" << endl;
+		}
+	} while (!quit);
 
 	//
 	///////////////////////////////////////

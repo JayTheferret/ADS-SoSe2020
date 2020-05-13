@@ -25,10 +25,10 @@ class Ring{
 			anker = nullptr;
 			AnzahlNodes = 0;
 		};
-		//~Ring();
 
 		void addNode(string SymbolicData,string Description);
-		bool search(string Data);
+		bool search(string SymbolicData);
+		bool search(string SymbolicData, RingNode*& t);
 		void print();
 
 
