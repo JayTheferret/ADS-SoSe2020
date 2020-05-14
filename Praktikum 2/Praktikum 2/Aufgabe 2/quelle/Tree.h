@@ -17,7 +17,7 @@ class Tree{
 		// Ihr Code hier:	
 			
 		TreeNode* anker = nullptr;
-		int NodeIdCounter = 0;
+		int NodeIDCounter = 0;
 
 		//
 		////////////////////////////////////	
@@ -33,6 +33,8 @@ class Tree{
 		bool searchNode(string Name);
 		void printAll();
 
+		//Hilfe für delete
+		TreeNode* minorNode(TreeNode* node, TreeNode*& parent);
 		//
 		////////////////////////////////////
 		// friend-Funktionen sind für die Tests erforderlich und müssen unangetastet bleiben! 

@@ -33,8 +33,8 @@ int main() {
 			<< "   |   2) Datensatz enfuegen, CSV Datei  |" << endl
 			<< "   |   3) Datensatz löschen              |" << endl
 			<< "   |   4) Suchen                         |" << endl
-			<< "   |   4) Datenstruktur anzeigen         |" << endl
-			<< "   |   5) Quit                           |" << endl
+			<< "   |   5) Datenstruktur anzeigen         |" << endl
+			<< "   |   6) Quit                           |" << endl
 			<< "   |                                     |" << endl
 			<< "    =====================================" << endl;
 
@@ -59,45 +59,91 @@ int main() {
 
 			My_Tree.addNode(name, alter, einkommen, plz);
 
-			cout << "Ihr Datensatz wurde eingefügt.";
+			cout << "Ihr Datensatz wurde eingefügt." << endl;
 		}
 
 		else if (input == 2) {
 			char input2;
+			int auswahl;
 
-			do { //nur richtige eingaben annehmen sonst weiter nachfragen
-				cout << "Moechten Sie die Daten aus der Datei \"ExportZielanalyse.csv\" importieren? (j/N) ?> ";
-				cin >> input2;
-			} while (input2 != 'j' && input2 != 'n');
+			cout	<< "Aus welcher Datei moechten Sie die Daten importieren? " << endl
+					<< "1) ExsportZielanalyse.csv" << endl
+					<< "2) ExportZielanalys_Fall2.csv" << endl;
+			cin		>> auswahl;
+			if (auswahl == 1) {
+				do { //nur richtige eingaben annehmen sonst weiter nachfragen
+					cout << "Moechten Sie die Daten aus der Datei \"ExportZielanalyse.csv\" importieren? (j/n) ?> ";
+					cin >> input2;
+				} while (input2 != 'j' && input2 != 'n');
 
-			if (input2 == 'j') {
-				fstream daten("ExportZielanalys.csv", ios::in);
+				if (input2 == 'j') {
+					fstream daten("ExportZielanalyse.csv", ios::in);
 
-				string name = "";
-				int alter = 0, plz = 0;
-				double einkommen = 0.0;
+					string name = "";
+					int alter = 0, plz = 0;
+					double einkommen = 0.0;
 
-				while (!daten.eof()) { //solange nicht am ende
-					getline(daten, name, ';');
-					
-					string speicher;
+					while (!daten.eof()) { //solange nicht am ende
 
-					getline(daten, speicher, ';'); //alter als string einlesen
-					alter = stoi(speicher); //string to integer
+						getline(daten, name, ';');
+						if (name.empty()) { break; } //ende vom file
+						string speicher;
 
-					getline(daten, speicher, ';');
-					einkommen = stod(speicher); //string to double
-					
-					getline(daten, speicher, '\n');
-					plz = stoi(speicher);
+						getline(daten, speicher, ';'); //alter als string einlesen
+						alter = stoi(speicher); //string to integer
 
-					My_Tree.addNode(name, alter, einkommen, plz); //in Baum einfügen
+						getline(daten, speicher, ';');
+						einkommen = stod(speicher); //string to double
 
+						getline(daten, speicher, '\n');
+						plz = stoi(speicher);
+
+						My_Tree.addNode(name, alter, einkommen, plz); //in Baum einfügen
+
+					}
+
+					daten.close(); //Datei schließen
+					cout << " Daten wurden dem Baum hinzugefuegt." << endl;
 				}
-
-				daten.close(); //Datei schließen
-				cout << " Daten wurden dem Baum hinzugefuegt." << endl;
 			}
+			if (auswahl == 2) {
+				do { //nur richtige eingaben annehmen sonst weiter nachfragen
+					cout << "Moechten Sie die Daten aus der Datei \"ExportZielanalyse_Fall2.csv\" importieren? (j/n) ?> ";
+					cin >> input2;
+				} while (input2 != 'j' && input2 != 'n');
+
+				if (input2 == 'j') {
+					fstream daten("ExportZielanalyse_Fall2.csv", ios::in);
+
+					string name = "";
+					int alter = 0, plz = 0;
+					double einkommen = 0.0;
+
+					while (!daten.eof()) { //solange nicht am ende
+
+						getline(daten, name, ';');
+						if (name.empty()) { break; } //ende vom file
+						string speicher;
+
+						getline(daten, speicher, ';'); //alter als string einlesen
+						alter = stoi(speicher); //string to integer
+
+						getline(daten, speicher, ';');
+						einkommen = stod(speicher); //string to double
+
+						getline(daten, speicher, '\n');
+						plz = stoi(speicher);
+
+						My_Tree.addNode(name, alter, einkommen, plz); //in Baum einfügen
+
+					}
+
+					daten.close(); //Datei schließen
+					cout << " Daten wurden dem Baum hinzugefuegt." << endl;
+				}
+			}
+
+
 			else if (input == 'n') { break; }
 		}
 
