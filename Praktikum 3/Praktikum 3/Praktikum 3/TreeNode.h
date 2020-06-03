@@ -22,7 +22,7 @@ private:
 	TreeNode* left = nullptr;
 	TreeNode* right = nullptr;
 
-	bool red;
+	bool red = true;
 
 	//
 	////////////////////////////////////
@@ -34,6 +34,8 @@ public:
 	TreeNode(int NodePosID, int NodeID, string Name, int Alter, double Einkommen, int PLZ) :
 		NodePosID{ Alter + PLZ + int(Einkommen) },
 		NodeID{ NodeID }, Name{ Name }, Alter{ Alter }, Einkommen{ Einkommen }, PLZ{ PLZ } {};
+
+
 
 	//getter setter
 

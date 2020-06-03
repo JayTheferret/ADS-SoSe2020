@@ -8,6 +8,8 @@
 #include <string>
 #include "TreeNode.h"
 #include "catch.h"
+#include <queue>
+#include <stack>
 
 
 using namespace std;
@@ -19,7 +21,7 @@ private:
 	// Ihr Code hier:	
 
 	TreeNode* anker = nullptr;
-	int NodeIDCounter = 0;
+	int NodeIDCounter = 1;
 
 	bool split4Node(TreeNode* node);
 	bool rotateTreeRight(TreeNode* pp, TreeNode* p2);
@@ -36,13 +38,15 @@ public:
 
 	void printLevelOrder();
 
-	void addNode(string Name, int Alter, double Einkommen, int PLZ);
+	bool addNode(string Name, int Alter, double Einkommen, int PLZ);
+	void rotate(stack<TreeNode*>& path);
 	void deleteNode(int NodePosID);
 	bool searchNode(string Name);
 	void printAll();
 
 	//Hilfe für delete
 	TreeNode* minorNode(TreeNode* node, TreeNode*& parent);
+
 	//
 	////////////////////////////////////
 	// friend-Funktionen sind für die Tests erforderlich und müssen unangetastet bleiben! 

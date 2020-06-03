@@ -1,8 +1,5 @@
-﻿/*************************************************
-* ADS Praktikum 2.2
-* main.cpp
-*
-*************************************************/
+﻿//Gruppenarbeit mit Cinzia-Jacqueline Mai
+
 #define CATCH_CONFIG_RUNNER
 #include <iostream>
 #include "Tree.h"
@@ -10,16 +7,64 @@
 
 using namespace std;
 
-///////////////////////////////////////
-// Hilfsmethoden fürs Menü hier:
-
-
-
-//
-///////////////////////////////////////
 int main() {
 
 	int result = Catch::Session().run();
+
+	//test Baum aus Praktikum(Folie) gezeigt:
+	/*
+	cout	<< endl
+			<< "Test Baum: " << endl
+			<< "=======================================" << endl
+			<< endl;
+	
+		Tree* TestTree = new Tree();
+
+		TestTree->addNode("T1", 50, 0, 0);
+		TestTree->addNode("T2", 10, 0, 0);
+		TestTree->addNode("T3", 20, 0, 0);
+		TestTree->addNode("T4", 22, 0, 0);
+		TestTree->addNode("T5", 30, 0, 0);
+		TestTree->addNode("T6", 25, 0, 0);
+		TestTree->addNode("T7", 28, 0, 0);
+		TestTree->addNode("T8", 40, 0, 0);
+
+		TestTree->printLevelOrder();
+
+		cout << endl
+			<< "=======================================" << endl
+			<< "Ausgabe eigener TestBaum abgeschlossen." << endl
+			<< endl;
+	
+		cout << endl
+			<< "Test Baum2: " << endl
+			<< "=======================================" << endl
+			<< endl;
+
+			*/
+
+	//zweiter TestBaum
+
+		Tree* TestTree2 = new Tree();
+
+		TestTree2->addNode("T1",   5, 0, 0);
+		TestTree2->addNode("T2",   8, 0, 0);
+		TestTree2->addNode("T3",  37, 0, 0);
+		TestTree2->addNode("T4",  17, 0, 0);
+		TestTree2->addNode("T5", 105, 0, 0);
+		TestTree2->addNode("T6",  39, 0, 0);
+		TestTree2->addNode("T7",   7, 0, 0);
+
+		TestTree2->printLevelOrder();
+
+		cout << endl
+			<< "=======================================" << endl
+			<< "Ausgabe eigener TestBaum2 abgeschlossen." << endl
+			<< endl;
+
+	/*
+
+	//Praktikum 2:
 
 	///////////////////////////////////////
 	// Ihr Code hier:
@@ -138,7 +183,7 @@ int main() {
 
 					}
 
-					daten.close(); //Datei schlie�en
+					daten.close(); //Datei schließen
 					cout << " Daten wurden dem Baum hinzugefuegt." << endl;
 				}
 			}
@@ -182,7 +227,7 @@ int main() {
 		}
 	} while (!quit);
 
-
+	*/
 	//
 	///////////////////////////////////////
 	system("PAUSE");

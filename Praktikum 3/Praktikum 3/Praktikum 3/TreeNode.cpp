@@ -7,15 +7,6 @@
 #include <iostream>
 #include <string>
 
-
-////////////////////////////////////
-// Ihr Code hier:
-
-
-
-//
-////////////////////////////////////
-
 void TreeNode::print()
 {
 	cout << "NodeID: " << NodeID
@@ -25,4 +16,4 @@ void TreeNode::print()
 		<< ", PLZ: " << PLZ
 		<< "; PosID: " << NodePosID
 		<< endl;
-}
+} 

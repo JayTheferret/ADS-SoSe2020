@@ -33,6 +33,8 @@ TreeNode * get_anker(Tree& Tr) {
  *  - Getter von TreeNode - simple
  *  - Setter von TreeNode - simple
  */
+
+
 TEST_CASE("Tree Testing", "[TREE]" ) {
 	
 	Tree * nTree = new Tree();	
