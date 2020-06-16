@@ -1,0 +1,34 @@
+Name: Jennifer Götze
+Matrikelnummer: 3235447
+
+Prozessor	Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz, 3401 MHz, 4 Kern(e), 8 logische(r) Prozessor(en)
+
+-----------------------------------------------------------------
+
+Interpretation:
+
+QuickSort 
+	hat geringste Laufzeit wie zu erwarten war (O(n*logn))
+
+HeapSort
+	zweit schnellste Verfahren
+	über die Zeit relativ regelmäßig geblieben
+	Kein WorstCase eingetreten(?)
+
+MergeSort 
+	Aufwand in allen Cases wäre ähnlich da gleiche Komplexität 
+	(aufteilen, verschmelzen etc.)
+	hier zweit langsamstes Verfahren, Anstieg ziemlich stabil.
+	(war zu erwarten, O(n*logn)
+
+
+	-> 	Heap und MergeSort liegen sehr nah aneinander 
+		(worst case auch in Vorlesungsfolien gleiche Laufzeit O(N·log2N))
+
+ShellSort (Hibbardfolge)
+	hat die größten Schwankungen (bei Plot2 anfangs ziemlich stabil, danach Schwankungen)
+	insgesamt höchste Laufzeit.
+	-> höchste komplexität
+	laufzeit stark abhängig von Gap Size (hier HibbardFolge) passend zu Zufallswerten.
+	(Vermutung auf ersten Graphen liegt an Leistung der CPU -> ausführung auf PC von Komullitonen hatte
+	gleichmäßigeren Graphen)
